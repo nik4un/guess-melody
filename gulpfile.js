@@ -11,6 +11,11 @@ const mqpacker = require('css-mqpacker');
 const minify = require('gulp-csso');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
+const rollup = require('gulp-better-rollup');
+const sourcemaps = require('gulp-sourcemaps');
+const noderesolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
+const uglify = require('rollup-plugin-uglify');
 
 gulp.task('style', function () {
   return gulp.src('sass/style.scss')
@@ -35,9 +40,22 @@ gulp.task('style', function () {
     .pipe(gulp.dest('build/css'));
 });
 
+var rollupOptions = {
+        format: 'iife',
+        plugins: [
+            noderesolve({ jsnext: true, main: true, browser: true }),
+            commonjs(),
+            uglify()
+        ]
+    }
+
 gulp.task('scripts', function () {
-  return gulp.src('js/**/*.js')
+  return gulp.src('js/main.js')
     .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(rollup(rollupOptions))
+    .pipe(rename('main.min.js'))
+    .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('build/js/'));
 });
 

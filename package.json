@@ -16,17 +16,23 @@
     "css-mqpacker": "^6.0.*",
     "del": "^3.0.*",
     "eslint": "^4.19.*",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-htmlacademy": "^0.4.*",
+    "eslint-plugin-import": "^2.9.*",
     "gulp": "^3.9.*",
+    "gulp-better-rollup": "3.0.*",
     "gulp-csso": "^3.0.*",
     "gulp-imagemin": "^4.1.*",
     "gulp-plumber": "^1.2.*",
     "gulp-postcss": "^7.0.*",
     "gulp-rename": "^1.2.*",
     "gulp-sass": "^3.1.*",
-    "gulp-sourcemaps": "^2.6.*"
+    "gulp-sourcemaps": "^2.6.*",
+    "rollup-plugin-commonjs": "^9.1.*",
+    "rollup-plugin-node-resolve": "^3.3.*",
+    "rollup-plugin-uglify": "^3.0.*"
   },
   "engines": {
-    "node": "9"
+    "node": "stable"
   }
 }
