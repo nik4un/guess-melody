@@ -54,7 +54,6 @@ gulp.task('scripts', function () {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(rollup(rollupOptions))
-    .pipe(rename('main.min.js'))
     .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('build/js/'));
 });
@@ -100,7 +99,7 @@ gulp.task('serve', ['assemble'], function () {
     server: './build',
     notify: false,
     open: true,
-    port: 3502,
+    port: 3500,
     ui: false
   });
 
