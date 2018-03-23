@@ -8,6 +8,5 @@ env:
 extends: 'airbnb-base'
 
 rules:
-  quotes:
-    - 2
-    - backtick
+  quotes: [2, 'backtick']
+  arrow-parens: [2, 'always']
